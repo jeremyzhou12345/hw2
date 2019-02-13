@@ -1,7 +1,6 @@
 class Movie < ActiveRecord::Base
-    def self.all_ratings
-        a = Array.new
-        self.select("rating").uniq.each{|x| a.push(x.rating)}
-        a.sort.uniq
-    end
+  attr_accessible :title, :rating, :description, :release_date
+  def self.all_ratings
+    %w(G PG PG-13 NC-17 R)
+  end
 end
